@@ -12,5 +12,5 @@ open class Type(
 
         @Column(name = "name")
         open val name: String
-) {
-}
+)
+

@@ -5,14 +5,13 @@ import javax.persistence.Column
 import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
-open class BaseEntity(
-        @Column(name = "created_time", nullable = false)
-        open val createdTime: LocalDateTime,
+open class BaseEntity {
+    @Column(name = "created_time", nullable = false, updatable = true)
+    var createdTime: LocalDateTime? = null
 
-        @Column(name = "updated_time", nullable = false)
-        open val updatedTime: LocalDateTime,
+    @Column(name = "updated_time", nullable = false, updatable = true)
+    var updatedTime: LocalDateTime? = null
 
-        @Column(name = "updated_time_by_created_time_by", nullable = false)
-        open val updatedTimeByCreatedTimeBy: LocalDateTime
-) {
+    @Column(name = "updated_time_by_created_time_by", nullable = false, updatable = true)
+    var updatedTimeByCreatedTimeBy: LocalDateTime? = null
 }

@@ -1,6 +1,6 @@
 package be.feanor.arbitr.model
 
-import java.time.LocalDateTime
+import be.feanor.arbitr.enum.RoleName
 import javax.persistence.*
 
 @Entity
@@ -11,15 +11,8 @@ class Request(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long,
 
-        @ManyToOne(cascade = [CascadeType.ALL])
-        @JoinColumn(name = "user_id", nullable = false)
-        val user: User,
+        val userOwner : User,
+        val userAssigner : User
 
-        @ManyToOne(cascade = [CascadeType.ALL])
-        @JoinColumn(name = "product_id", nullable = false)
-        val product: Product,
+) : BaseEntity()
 
-        createdTime: LocalDateTime, updatedTime: LocalDateTime, updatedTimeByCreatedTime: LocalDateTime
-
-) : BaseEntity(createdTime, updatedTime, updatedTimeByCreatedTime) {
-}

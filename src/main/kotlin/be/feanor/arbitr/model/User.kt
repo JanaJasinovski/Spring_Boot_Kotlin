@@ -20,7 +20,6 @@ class User (
                 inverseJoinColumns = [JoinColumn(name = "role_id", referencedColumnName = "id")]
         )
         val role : Set<Role>,
-        createdTime: LocalDateTime, updatedTime: LocalDateTime, updatedTimeByCreatedTime: LocalDateTime,
 
-) : BaseEntity(createdTime, updatedTime, updatedTimeByCreatedTime) {
-}
+) : BaseEntity()
+

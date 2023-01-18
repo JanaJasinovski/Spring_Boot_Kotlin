@@ -17,14 +17,12 @@ class Product(
         @Column(name = "count", nullable = false)
         val count: Int,
 
-        @Column(name = "create_time", nullable = false)
-        val createTime: LocalDateTime,
-
         @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "type_id", nullable = false)
         val type: Type,
 
-        createdTime: LocalDateTime, updatedTime: LocalDateTime, updatedTimeByCreatedTime: LocalDateTime,
+        @Column(name = "attachment", nullable = false)
+        val attachment: String,
 
-) : BaseEntity(createdTime, updatedTime, updatedTimeByCreatedTime) {
-}
+) : BaseEntity()
+
