@@ -2,6 +2,7 @@ package be.feanor.arbitr.model
 
 import java.time.LocalDateTime
 import javax.persistence.*
+
 @Entity
 @Table(name = "product")
 class Product(
