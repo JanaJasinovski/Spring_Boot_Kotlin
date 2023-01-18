@@ -1,6 +1,5 @@
 package be.feanor.arbitr.model
 
-import be.feanor.arbitr.enum.RoleName
 import javax.persistence.*
 
 @Entity
@@ -11,8 +10,13 @@ class Request(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long,
 
-        val userOwner : User,
-        val userAssigner : User
+        @ManyToOne(cascade = [CascadeType.ALL])
+        @JoinColumn(name = "user_owner_id", nullable = false)
+        val owner : User,
+
+        @ManyToOne(cascade = [CascadeType.ALL])
+        @JoinColumn(name = "user_assignee_id", nullable = false)
+        val assignee : User? = null
 
 ) : BaseEntity()
 

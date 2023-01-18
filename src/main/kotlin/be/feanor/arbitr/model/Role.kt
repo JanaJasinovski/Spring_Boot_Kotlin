@@ -1,7 +1,6 @@
 package be.feanor.arbitr.model
 
 import be.feanor.arbitr.enum.RoleName
-import java.time.LocalDateTime
 import javax.persistence.*
 
 @Table(name = "role")

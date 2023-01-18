@@ -1,6 +1,5 @@
 package be.feanor.arbitr.model
 
-import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
@@ -21,7 +20,7 @@ class Product(
         @JoinColumn(name = "type_id", nullable = false)
         val type: Type,
 
-        @Column(name = "attachment", nullable = false)
+        @Column(name = "attachment", nullable = true)
         val attachment: String,
 
 ) : BaseEntity()
