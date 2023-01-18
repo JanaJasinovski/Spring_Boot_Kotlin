@@ -7,11 +7,9 @@ import javax.persistence.*
 @Table(name = "product")
 class Product(
         @Id
+        @Column(name = "id")
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id : Long,
-
-        @Column(name = "name", nullable = false)
-        val name: String,
+        val id: Long,
 
         @Column(name = "price", nullable = false)
         val price: Double,
@@ -21,5 +19,12 @@ class Product(
 
         @Column(name = "create_time", nullable = false)
         val createTime: LocalDateTime,
-) {
+
+        @ManyToOne(cascade = [CascadeType.ALL])
+        @JoinColumn(name = "type_id", nullable = false)
+        val type: Type,
+
+        createdTime: LocalDateTime, updatedTime: LocalDateTime, updatedTimeByCreatedTime: LocalDateTime,
+
+) : BaseEntity(createdTime, updatedTime, updatedTimeByCreatedTime) {
 }

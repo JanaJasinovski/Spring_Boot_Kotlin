@@ -4,35 +4,23 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 class User (
         @Id
+        @Column(name = "id")
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id : Long,
+        val id: Long,
 
-        @Column(name = "sex", nullable = false)
-        val sex: String,
+        @Column(name = "username", unique = true, nullable = false, length = 100)
+        val username : String,
 
-        @Column(name = "name", nullable = false)
-        val name : String,
+        @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+        @JoinTable(name = "user_role",
+                joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")],
+                inverseJoinColumns = [JoinColumn(name = "role_id", referencedColumnName = "id")]
+        )
+        val role : Set<Role>,
+        createdTime: LocalDateTime, updatedTime: LocalDateTime, updatedTimeByCreatedTime: LocalDateTime,
 
-        @Column(name = "surname", nullable = false)
-        val surname: String,
-
-        @Column(name = "age", nullable = false)
-        val age: Int,
-
-        @Column(name = "password", nullable = false)
-        val password: String,
-
-        @Column(name = "create_time", nullable = false)
-        val createTime: LocalDateTime,
-
-        @Enumerated(EnumType.STRING)
-        @Column(name = "role", nullable = false)
-        val role : Role,
-
-        @Column(name = "product", nullable = false)
-        val product: Product
-) {
+) : BaseEntity(createdTime, updatedTime, updatedTimeByCreatedTime) {
 }
