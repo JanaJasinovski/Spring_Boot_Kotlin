@@ -12,10 +12,10 @@ import be.feanor.arbitr.model.Type
 @RestController
 @RequestMapping("/arbitrator")
 class ArbitratorController {
-    @Autowired
-    private val productService: ProductService? = null
-    @GetMapping("/productsByType/{type}")
-    fun findAllProductsByType(@PathVariable type: Type): ResponseEntity<*>? {
-        return ResponseEntity.ok(productService?.sendRequestProductByType(type))
-    }
+//    @Autowired
+//    private val productService: ProductService? = null
+//    @GetMapping("/productsByType/{type}")
+//    fun findAllProductsByType(@PathVariable type: Type): ResponseEntity<*>? {
+//        return ResponseEntity.ok(productService?.sendRequestProductByType(type))
+//    }
 }

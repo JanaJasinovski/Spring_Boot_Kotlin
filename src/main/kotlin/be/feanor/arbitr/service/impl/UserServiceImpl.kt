@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 @Service
 class UserServiceImpl : UserService {
     private val userRepository: UserRepository? = null
-    override fun findAllProductsByUserArbitratorId(): List<Product?>? {
-        return null
-    }
-
-    override fun findAllUsers(): List<User?>? {
-        return userRepository!!.findAll()
-    }
+//    override fun findAllProductsByUserArbitratorId(): List<Product?>? {
+//        return null
+//    }
+//
+//    override fun findAllUsers(): List<User?>? {
+//        return userRepository!!.findAll()
+//    }
 }

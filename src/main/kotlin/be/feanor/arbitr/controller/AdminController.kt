@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/admin")
 class AdminController {
-    @Autowired
-    private val userService: UserService? = null
-    @GetMapping("allProductsByArbitrator")
-    fun findAllProductsByArbitrator(): ResponseEntity<*>? {
-        return ResponseEntity.ok(userService?.findAllProductsByUserArbitratorId())
-    }
+//    @Autowired
+//    private val userService: UserService? = null
+//    @GetMapping("allProductsByArbitrator")
+//    fun findAllProductsByArbitrator(): ResponseEntity<*>? {
+//        return ResponseEntity.ok(userService?.findAllProductsByUserArbitratorId())
+//    }
 }

@@ -5,7 +5,7 @@ import be.feanor.arbitr.model.User
 
 interface UserService {
 
-    fun findAllProductsByUserArbitratorId(): List<Product?>?
-
-    fun findAllUsers(): List<User?>?
+//    fun findAllProductsByUserArbitratorId(): List<Product?>?
+//
+//    fun findAllUsers(): List<User?>?
 }
